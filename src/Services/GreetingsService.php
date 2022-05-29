@@ -11,8 +11,8 @@ use Temporal\Activity\ActivityMethod;
 class GreetingsService
 {
     #[ActivityMethod(name: 'sayHello')]
-    public function sayHello(string $name): string
+    public function sayHello(string $prefix, string $name): string
     {
-        return "Hello, {$name}!";
+        return "Hello, {$prefix} {$name}!";
     }
 }
