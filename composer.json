@@ -1,0 +1,50 @@
+{
+    "name": "shanginn/php-base-worker",
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.1",
+        "temporal/sdk": "^1",
+        "spiral/tokenizer": "^2",
+        "nesbot/carbon": "^2"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3",
+        "jetbrains/phpstorm-attributes": "^1",
+        "phpunit/phpunit": "^9",
+        "symfony/var-dumper": "^5",
+        "php-http/mock-client": "^1",
+        "phpstan/phpstan": "^1",
+        "phpstan/phpstan-strict-rules": "^1",
+        "fakerphp/faker": "^1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Worker\\": "src",
+            "Worker\\Utils\\": "util-src",
+            "Worker\\Contracts\\": "contracts"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Worker\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "fix-cs": [
+            "@putenv PHP_CS_FIXER_IGNORE_ENV=1",
+            "php-cs-fixer fix -vvv --config=.php-cs.php --allow-risky=yes"
+        ],
+        "cs": [
+            "@putenv PHP_CS_FIXER_IGNORE_ENV=1",
+            "php-cs-fixer fix --dry-run -vvv --config=.php-cs.php --allow-risky=yes"
+        ],
+        "phpstan": [
+            "Composer\\Config::disableProcessTimeout",
+            "./vendor/bin/phpstan analyse --memory-limit=2G"
+        ],
+        "tests": [
+            "Composer\\Config::disableProcessTimeout",
+            "./vendor/bin/phpunit --testsuite=Functional --testdox"
+        ]
+    }
+}

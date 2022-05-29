@@ -1,0 +1,10 @@
+coverage
+.php-cs-fixer.cache
+auth.json
+.env
+.phpunit.result.cache
+.phpunit.cache
+vendor
+.idea
+
+tests

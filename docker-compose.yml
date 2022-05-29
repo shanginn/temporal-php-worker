@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  worker:
+    build: .
+    env_file: .env # Should this be necessary?
+    container_name: temporal-php-worker
+    volumes:
+      - .:/worker:delegated
+    entrypoint: ''
+    command: /usr/local/bin/rr serve -c /worker/.rr.dev.yaml

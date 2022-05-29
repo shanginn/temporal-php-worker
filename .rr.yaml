@@ -1,0 +1,12 @@
+version: "2.7"
+rpc:
+    listen: tcp://127.0.0.1:6001
+
+server:
+    command: "php worker.php"
+
+temporal:
+    address: $TEMPORAL_CLI_ADDRESS
+    activities:
+        num_workers: 5
+    codec: json

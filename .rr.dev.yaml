@@ -1,0 +1,16 @@
+version: "2.7"
+rpc:
+    listen: tcp://127.0.0.1:6001
+
+server:
+    command: "php worker.php"
+    env:
+        - DEBUG: "true"
+        - XDEBUG_SESSION: "1"
+
+temporal:
+    address: $TEMPORAL_CLI_ADDRESS
+    activities:
+        num_workers: 1
+    debug_level: 2
+    codec: json
