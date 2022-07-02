@@ -21,6 +21,7 @@ Then clone this repo and docker-compose up it.
 git clone git@github.com:shanginn/temporal-php-worker.git
 cd temporal-php-worker
 cp .env.example .env
+make init
 docker-compose up
 ```
 
