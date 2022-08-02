@@ -7,4 +7,5 @@ auth.json
 vendor
 .idea
 
-tests
+temporal-test-server
+rr
