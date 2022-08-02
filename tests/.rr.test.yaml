@@ -1,0 +1,30 @@
+version: "2.7"
+# Application configuration
+rpc:
+  listen: tcp://127.0.0.1:6001
+
+server:
+  command: "php worker.php"
+  env:
+    DEBUG: true
+    XDEBUG_SESSION: 1
+
+# Workflow and activity mesh service
+temporal:
+  address: "localhost:7233"
+  activities:
+    num_workers: 1
+  debug_level: 2
+  codec: json
+
+logs:
+  #mode: none
+  channels:
+    activities:
+      mode: none
+
+kv:
+  test:
+    driver: memory
+    config:
+      interval: 10
