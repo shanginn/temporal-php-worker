@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Temporal\WorkerFactory;
+use Temporal\Testing\WorkerFactory;
 
 ini_set('display_errors', 'stderr');
 include '../vendor/autoload.php';
