@@ -30,10 +30,10 @@ class BaseWorkflow implements BaseWorkflowInterface
         );
     }
 
-    public function create(Config $config = new Config): Generator
+    public function create(Config $config): Generator
     {
         return yield $this->greetingsService->sayHello(
-            prefix: $config->prefix,
+            prefix: $config,
             name: 'World',
         );
     }

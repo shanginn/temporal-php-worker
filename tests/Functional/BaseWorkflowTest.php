@@ -8,6 +8,7 @@ use Temporal\Client\GRPC\ServiceClient;
 use Temporal\Client\WorkflowClient;
 use Temporal\Testing\ActivityMocker;
 use Worker\Contracts\BaseWorkflowInterface;
+use Worker\Contracts\Config;
 use Worker\Tests\TestCase;
 
 class BaseWorkflowTest extends TestCase
@@ -25,13 +26,15 @@ class BaseWorkflowTest extends TestCase
 
     public function testBaseWorkflow(): void
     {
-        $this->activityMocks->expectCompletion('Greetings.sayHello', 'Mocked hello!');
         $workflow = $this->workflowClient->newWorkflowStub(BaseWorkflowInterface::class);
 
-        $run = $this->workflowClient->start($workflow);
+        $run = $this->workflowClient->start(
+            $workflow,
+            new Config('from', 'readonly', 'properties')
+        );
 
         self::assertSame(
-            'Mocked hello!',
+            'Hello, from readonly properties World!',
             $run->getResult('string')
         );
     }
