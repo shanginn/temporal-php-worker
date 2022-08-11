@@ -6,12 +6,13 @@
     "require": {
         "php": "^8.1",
         "temporal/sdk": "dev-master",
-        "spiral/tokenizer": "^2",
-        "nesbot/carbon": "^2"
+        "spiral/tokenizer": "^2.7",
+        "nesbot/carbon": "^2.52"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3",
         "jetbrains/phpstorm-attributes": "^1",
+        "dereuromark/composer-prefer-lowest": "^0.1.10",
         "phpunit/phpunit": "^9",
         "symfony/var-dumper": "^5",
         "php-http/mock-client": "^1",
