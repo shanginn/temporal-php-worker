@@ -18,7 +18,8 @@
         "php-http/mock-client": "^1",
         "phpstan/phpstan": "^1",
         "phpstan/phpstan-strict-rules": "^1",
-        "fakerphp/faker": "^1"
+        "fakerphp/faker": "^1",
+        "vimeo/psalm": "^4"
     },
     "autoload": {
         "psr-4": {
