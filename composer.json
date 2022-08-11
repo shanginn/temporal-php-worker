@@ -1,5 +1,7 @@
 {
     "name": "shanginn/php-base-worker",
+    "description": "Temporal PHP Base Worker",
+    "license": "MIT",
     "minimum-stability": "stable",
     "require": {
         "php": "^8.1",
