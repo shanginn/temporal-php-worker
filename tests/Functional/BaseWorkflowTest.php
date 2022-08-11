@@ -6,6 +6,7 @@ namespace Worker\Tests\Functional;
 
 use Temporal\Client\GRPC\ServiceClient;
 use Temporal\Client\WorkflowClient;
+use Temporal\DataConverter\Type;
 use Temporal\Testing\ActivityMocker;
 use Worker\Contracts\BaseWorkflowInterface;
 use Worker\Tests\TestCase;
@@ -18,21 +19,20 @@ class BaseWorkflowTest extends TestCase
     protected function setUp(): void
     {
         $this->workflowClient = new WorkflowClient(ServiceClient::create('localhost:7233'));
-        $this->activityMocks = new ActivityMocker();
+//        $this->activityMocks = new ActivityMocker();
 
         parent::setUp();
     }
 
     public function testBaseWorkflow(): void
     {
-        $this->activityMocks->expectCompletion('Greetings.sayHello', 'Mocked hello!');
         $workflow = $this->workflowClient->newWorkflowStub(BaseWorkflowInterface::class);
 
         $run = $this->workflowClient->start($workflow);
 
         self::assertSame(
-            'Mocked hello!',
-            $run->getResult('string')
+            'array',
+            $run->getResult(Type::TYPE_STRING)
         );
     }
 }

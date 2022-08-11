@@ -32,9 +32,11 @@ class BaseWorkflow implements BaseWorkflowInterface
 
     public function create(Config $config = new Config): Generator
     {
-        return yield $this->greetingsService->sayHello(
+        $res = yield $this->greetingsService->sayHello(
             prefix: $config->prefix,
             name: 'World',
         );
+        
+        return get_debug_type($res);
     }
 }

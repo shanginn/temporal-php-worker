@@ -6,13 +6,15 @@ namespace Worker\Services;
 
 use Temporal\Activity\ActivityInterface;
 use Temporal\Activity\ActivityMethod;
+use Temporal\DataConverter\Type;
+use Temporal\Workflow\ReturnType;
 
 #[ActivityInterface(prefix: 'Greetings.')]
 class GreetingsService
 {
     #[ActivityMethod(name: 'sayHello')]
-    public function sayHello(string $prefix, string $name): string
+    public function sayHello(string $prefix, string $name): array
     {
-        return "Hello, {$prefix} {$name}!";
+        return [$prefix => "{$name}!"];
     }
 }

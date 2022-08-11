@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2cb20bf41adf565a5d85defb70cea03d",
+    "content-hash": "503aebc17baa37ade305a88514eb8b98",
     "packages": [
         {
             "name": "composer/semver",
@@ -2640,16 +2640,16 @@
         },
         {
             "name": "temporal/sdk",
-            "version": "dev-master",
+            "version": "dev-feature-associative-arrays-params",
             "source": {
                 "type": "git",
-                "url": "https://github.com/temporalio/sdk-php.git",
-                "reference": "10e2ecd791db025622f8912030ef721ff6e3de44"
+                "url": "https://github.com/shanginn/sdk-php.git",
+                "reference": "b62028c3f5bb2c47dab71915473b5b8400b2b16b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/temporalio/sdk-php/zipball/10e2ecd791db025622f8912030ef721ff6e3de44",
-                "reference": "10e2ecd791db025622f8912030ef721ff6e3de44",
+                "url": "https://api.github.com/repos/shanginn/sdk-php/zipball/b62028c3f5bb2c47dab71915473b5b8400b2b16b",
+                "reference": "b62028c3f5bb2c47dab71915473b5b8400b2b16b",
                 "shasum": ""
             },
             "require": {
@@ -2688,7 +2688,6 @@
             "suggest": {
                 "doctrine/annotations": "^1.11 for Doctrine metadata driver support"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2697,16 +2696,37 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Temporal\\": "src",
-                    "GPBMetadata\\": "api/v1/GPBMetadata",
-                    "Temporal\\Api\\": "api/v1/Temporal/Api",
-                    "Temporal\\Testing\\": "testing/src",
-                    "Temporal\\Roadrunner\\": "api/v1/Temporal/Roadrunner",
                     "Temporal\\Api\\Testservice\\": "testing/api/testservice/Temporal/Api/Testservice",
-                    "GPBMetadata\\Temporal\\Api\\Testservice\\": "testing/api/testservice/GPBMetadata/Temporal/Api/Testservice"
+                    "GPBMetadata\\Temporal\\Api\\Testservice\\": "testing/api/testservice/GPBMetadata/Temporal/Api/Testservice",
+                    "Temporal\\Testing\\": "testing/src",
+                    "GPBMetadata\\": "api/v1/GPBMetadata",
+                    "Temporal\\": "src",
+                    "Temporal\\Api\\": "api/v1/Temporal/Api",
+                    "Temporal\\Roadrunner\\": "api/v1/Temporal/Roadrunner"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Temporal\\Tests\\": "tests",
+                    "Temporal\\Tests\\Workflow\\": "tests/Fixtures/src/Workflow",
+                    "Temporal\\Tests\\Activity\\": "tests/Fixtures/src/Activity",
+                    "Temporal\\Tests\\DTO\\": "tests/Fixtures/src/DTO"
+                }
+            },
+            "scripts": {
+                "tests": [
+                    "phpunit --testsuite=Unit --testdox",
+                    "phpunit --testsuite=Feature --testdox",
+                    "phpunit --testsuite=Functional --testdox"
+                ],
+                "phpcs": [
+                    "@putenv PHP_CS_FIXER_IGNORE_ENV=1",
+                    "php-cs-fixer fix src"
+                ],
+                "check": [
+                    "psalm"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -2723,12 +2743,12 @@
                 "workflow"
             ],
             "support": {
-                "docs": "https://docs.temporal.io",
                 "forum": "https://community.temporal.io",
+                "docs": "https://docs.temporal.io",
                 "issues": "https://github.com/temporalio/sdk-php/issues",
                 "source": "https://github.com/temporalio/sdk-php"
             },
-            "time": "2022-08-10T16:49:47+00:00"
+            "time": "2022-08-11T15:23:30+00:00"
         }
     ],
     "packages-dev": [
