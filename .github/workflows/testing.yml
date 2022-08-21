@@ -9,3 +9,4 @@ jobs:
     with:
       fail-fast: false
       test-suite: Functional
+      test-timeout: 20
