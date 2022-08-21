@@ -1,0 +1,12 @@
+name: Testing
+
+on: [push, pull_request]
+
+jobs:
+  functional:
+    name: Functional Testing
+    uses: ./.github/workflows/run-test-suite.yml
+    with:
+      fail-fast: false
+      test-suite: Functional
+      test-timeout: 20
