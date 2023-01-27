@@ -8,7 +8,7 @@ use Temporal\Activity\ActivityInterface;
 use Temporal\Activity\ActivityMethod;
 use Worker\Repositories\SchedulerRepository;
 
-#[ActivityInterface(prefix: 'SchedulerRepositoryActivity.')]
+#[ActivityInterface(prefix: 'SchedulerService.')]
 class SchedulerService
 {
     private SchedulerRepository $repository;

@@ -44,8 +44,9 @@ class LoaderWorkflow implements LoaderWorkflowInterface
 
     public function create(Config $config = new Config()): Generator
     {
-        $offset = 0;
-        $limit  = $config->batchSize;
+        $processed = 0;
+        $offset    = 0;
+        $limit     = $config->batchSize;
 
         do {
             [
@@ -57,7 +58,11 @@ class LoaderWorkflow implements LoaderWorkflowInterface
 
             foreach ($data as $item) {
                 yield $this->apiService->sendRequest((string) $item['id']);
+
+                ++$processed;
             }
         } while ($count > 0);
+
+        return $processed;
     }
 }

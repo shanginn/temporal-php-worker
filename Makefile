@@ -30,7 +30,7 @@ build: ## Build images
 shell: ## Run bash inside working container
 	docker-compose exec worker bash
 
-tests-worker: ## WORK IN PROGRESS: Run tests
+tests: ## WORK IN PROGRESS: Run tests
 	./tests/rr serve -c ./tests/.rr.yaml
 
 fixcs: ## Run PHP CodeStyle fix
