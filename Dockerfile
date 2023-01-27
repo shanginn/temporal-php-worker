@@ -1,4 +1,4 @@
-FROM shanginn/temporal-php-worker:latest
+FROM ghcr.io/shanginn/temporal-php-worker-image:master
 
 COPY --chown=worker:worker . /worker
 
