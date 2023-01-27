@@ -31,7 +31,7 @@ To check the worker we will need [Temporal CLI](https://docs.temporal.io/tctl/).
 
 Install it. Then run
 ```shell
-tctl workflow start --tq=default -wt=BaseWorkflowInterface -i='{"prefix": "Ms."}'
+tctl workflow start --tq=default -wt=LoaderWorkflowInterface -i='{"batchSize": 10}'
 # Started Workflow Id: a046d7f9-c36a-481d-8eac-0dc7cf9150cb, run Id: 090810b9-9a24-4ad2-99ea-fa580cc16d7c
 ```
 
