@@ -7,7 +7,7 @@ namespace Worker\Contracts;
 class Config
 {
     public function __construct(
-        public readonly string $prefix = 'Mr. '
+        public readonly int $batchSize = 10,
     ) {
     }
 }

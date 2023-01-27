@@ -8,7 +8,7 @@ ini_set('display_errors', 'stderr');
 include '../vendor/autoload.php';
 
 $factory = WorkerFactory::create();
-$worker = $factory->newWorker();
+$worker  = $factory->newWorker();
 
 $declarationPath = realpath(__DIR__ . '/../declarations.php');
 
@@ -22,7 +22,7 @@ foreach ($declarations as $package => $declaration) {
     $worker->registerWorkflowTypes(...$declaration['workflows']);
 
     foreach ($declaration['activities'] ?? [] as $activity) {
-        $worker->registerActivityImplementations(new $activity);
+        $worker->registerActivityImplementations(new $activity());
     }
 }
 
